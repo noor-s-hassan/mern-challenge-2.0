@@ -13,8 +13,8 @@ class Config:
     MAIL_USE_TLS=True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    SUBJECT_PREFIX = 'PITCH SPLASH!'
-    SENDER_EMAIL = 'splashpitch@gmail.com'
+    SUBJECT_PREFIX = 'Sending An Email!'
+    SENDER_EMAIL = 'n.bot@gmail.com'
 
 
     @staticmethod
