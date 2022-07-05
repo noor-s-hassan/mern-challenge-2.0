@@ -34,7 +34,7 @@ def blog():
 
 @main.route('/contact')
 def contact():
-    name = "Time to get started "
+    name = "Time to get started"
     
     return render_template('contact.html', name=name)
 

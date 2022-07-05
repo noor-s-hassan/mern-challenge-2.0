@@ -1,7 +1,7 @@
 Dear {{user.username}} ,
 
-Welcome to BlogVolution!
+Welcome to Noor's Blog!
 
-You have successfully joined the BlogVolution community. 
+You have successfully joined the Noor community. 
 
 You can now login, create post,  and comment on other posts!

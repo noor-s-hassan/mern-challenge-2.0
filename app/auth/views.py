@@ -25,11 +25,11 @@ def register():
         db.session.add(user) # add user
         db.session.commit() # commit session
         
-        mail_message("You have successfully signed up for a BlogVolution Splash account","email/welcome_user",user.email, user = user)
+        mail_message("You have successfully signed up for a user account","email/welcome_user",user.email, user = user)
 
         flash(f'Account created successfully for {form.username.data}!', 'success')
         return redirect(url_for('auth.login'))
-    return render_template("auth/register.html", title='BlogVolution-Login',form=form)
+    return render_template("auth/register.html", title='Noor Blog-Login',form=form)
 
 
 
@@ -46,7 +46,7 @@ def login():
             return redirect(next_page) if next_page else redirect(url_for('main.home')) # redirects to requested page after loggin in if it exists... if none, redirects to home page
         else:
             flash('Login Failed. Kindly check your email and password then try again','danger')
-    return render_template("auth/login.html",form=form,title='BlogVolution-Login')
+    return render_template("auth/login.html",form=form,title='Noor Blog-Login')
 
 
 @auth.route('/logout')
@@ -59,7 +59,7 @@ def save_picture(form_picture): # saving image
     random_hex = secrets.token_hex(8) # geneates new name for the picture
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join('app/static/profile', picture_fn)
+    picture_path = os.path.join('app/default.jpg.png', picture_fn)
     
     #image resizing
     output_size=(125,125)
@@ -91,6 +91,6 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username # Populate user username on to the form
         form.email.data = current_user.email # Populate user email on to the form
-    image = url_for('static', filename='profile/' + current_user.image) # route for default profile picture
+    image = url_for('static', filename='default.jpg.png' + current_user.image) # route for default profile picture
      
     return render_template("auth/account.html", title='Account', image=image, form=form,post=post)
